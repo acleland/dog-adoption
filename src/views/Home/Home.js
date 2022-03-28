@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import DogCard from '../../components/DogCard/DogCard';
+import DogList from '../../components/DogList/DogList';
 import { getDogs } from '../../services/dogs';
 
 export default function Home() {
@@ -16,5 +18,12 @@ export default function Home() {
     };
     getData();
   }, []);
-  return <div>Home</div>;
+
+  console.log(dogs[0]);
+  return (
+    <div>
+      <h1>Adopt-a-Dog</h1>
+      <DogList dogs={dogs} />
+    </div>
+  );
 }

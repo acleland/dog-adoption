@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getDogById } from '../../services/dogs';
-// import { useHistory } from 'react-router-dom';
+import { deleteById } from '../../services/dogs';
+import { useHistory } from 'react-router-dom';
 // import DeleteButton from '../../components/DeleteButton/DeleteButton';
 
 export default function DogDetail() {
@@ -13,7 +14,12 @@ export default function DogDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // const history = useHistory();
+  const history = useHistory();
+
+  const handleDelete = () => {
+    deleteById(id);
+    history.push('/');
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -49,7 +55,7 @@ export default function DogDetail() {
       </div>
       <div>
         <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
         {/* <DeleteButton /> */}
       </div>
     </div>

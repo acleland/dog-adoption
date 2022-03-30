@@ -22,12 +22,9 @@ export default function Auth({ setCurrentUser }) {
     }
   };
 
-  if (error) {
-    return <p>{error}</p>;
-  }
-
   return (
     <div>
+      {error && <p>{error}</p>}
       <h1>Sign In</h1>
       <form className="auth" onSubmit={handleSubmit}>
         <label>

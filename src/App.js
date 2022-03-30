@@ -4,8 +4,11 @@ import DogDetail from './views/DogDetail/DogDetail';
 import Home from './views/Home/Home';
 import Nav from './components/Nav/Nav';
 import Auth from './views/Auth/Auth';
+import Admin from './views/Admin/Admin';
+
 import { getUser } from './services/users';
 import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
@@ -21,6 +24,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route path="/admin">{currentUser ? <Admin /> : <Redirect to="/auth" />}</Route>
           <Route path="/dogs/:id">
             <DogDetail />
           </Route>

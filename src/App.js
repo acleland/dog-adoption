@@ -26,7 +26,7 @@ function App() {
           </Route>
           <Route path="/admin">{currentUser ? <Admin /> : <Redirect to="/auth" />}</Route>
           <Route path="/dogs/:id">
-            <DogDetail />
+            <DogDetail currentUser={currentUser} />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -6,7 +6,7 @@ import { deleteById } from '../../services/dogs';
 import { useHistory } from 'react-router-dom';
 // import DeleteButton from '../../components/DeleteButton/DeleteButton';
 
-export default function DogDetail() {
+export default function DogDetail({ currentUser }) {
   const params = useParams();
   const id = params.id;
 
@@ -16,8 +16,8 @@ export default function DogDetail() {
 
   const history = useHistory();
 
-  const handleDelete = () => {
-    deleteById(id);
+  const handleDelete = async () => {
+    await deleteById(id);
     history.push('/');
   };
 
@@ -53,11 +53,13 @@ export default function DogDetail() {
           <li>Bio: {dog.bio}</li>
         </ul>
       </div>
-      <div>
-        <button>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
-        {/* <DeleteButton /> */}
-      </div>
+      {currentUser && (
+        <div>
+          <button>Edit</button>
+          <button onClick={handleDelete}>Delete</button>
+          {/* <DeleteButton /> */}
+        </div>
+      )}
     </div>
   );
 }

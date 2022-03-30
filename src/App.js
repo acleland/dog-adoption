@@ -3,6 +3,7 @@ import './App.css';
 import DogDetail from './views/DogDetail/DogDetail';
 import Home from './views/Home/Home';
 import Nav from './components/Nav/Nav';
+import Auth from './views/Auth/Auth';
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Switch>
+          <Route exact path="/auth">
+            <Auth />
+          </Route>
           <Route exact path="/">
             <Home />
           </Route>

@@ -7,18 +7,24 @@ export default function Auth({ setCurrentUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
+  const [error, setError] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submitting form');
+
     try {
       const resp = await signInUser(email, password);
       setCurrentUser(resp.email);
       history.push('/');
     } catch (e) {
-      console.log(e);
+      setError(e.message);
+      history.push('/auth');
     }
   };
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div>

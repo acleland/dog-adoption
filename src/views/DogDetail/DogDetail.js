@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getDogById } from '../../services/dogs';
+// import { useHistory } from 'react-router-dom';
+// import DeleteButton from '../../components/DeleteButton/DeleteButton';
 
 export default function DogDetail() {
   const params = useParams();
@@ -9,7 +11,9 @@ export default function DogDetail() {
 
   const [dog, setDog] = useState();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
+  const [error, setError] = useState(false);
+
+  // const history = useHistory();
 
   useEffect(() => {
     const getData = async () => {
@@ -42,6 +46,11 @@ export default function DogDetail() {
           <li>Breed: {dog.breed}</li>
           <li>Bio: {dog.bio}</li>
         </ul>
+      </div>
+      <div>
+        <button>Edit</button>
+        <button>Delete</button>
+        {/* <DeleteButton /> */}
       </div>
     </div>
   );

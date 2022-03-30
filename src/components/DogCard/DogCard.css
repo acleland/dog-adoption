@@ -11,3 +11,7 @@
 .dog-card img {
   width: 200px;
 }
+
+.dog-card:hover {
+  background-color: aliceblue;
+}

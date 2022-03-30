@@ -8,7 +8,7 @@ export default function DogList({ dogs }) {
     <div className="dog-list">
       {dogs.map((dog) => (
         <Link key={dog.id} to={`/dogs/${dog.id}`}>
-          <DogCard key={dog.id} {...dog} />
+          <DogCard key={dog.id} dog={dog} />
         </Link>
       ))}
     </div>

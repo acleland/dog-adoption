@@ -9,7 +9,7 @@
 1. Create the DogCard component and update home
 1. Create Detail Route and DogDetail component
    1. Create fetch function getting single dog info
-   1. Create create a DogDetail component to display
+   1. Create a DogDetail component to display
    1. Create a button to edit, and a button to delete
    1. redirect page using useHistory if delete is called
 1. Make dog cards in Home links to detail page

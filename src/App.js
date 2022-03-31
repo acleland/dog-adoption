@@ -5,6 +5,7 @@ import Home from './views/Home/Home';
 import Nav from './components/Nav/Nav';
 import Auth from './views/Auth/Auth';
 import Admin from './views/Admin/Admin';
+import Edit from './views/Edit/Edit';
 
 import { getUser } from './services/users';
 import { useState } from 'react';
@@ -25,7 +26,10 @@ function App() {
             <Home />
           </Route>
           <Route path="/admin">{currentUser ? <Admin /> : <Redirect to="/auth" />}</Route>
-          <Route path="/dogs/:id">
+          <Route exact path="/dogs/:id/edit">
+            {currentUser ? <Edit /> : <Redirect to="/auth" />}
+          </Route>
+          <Route exact path="/dogs/:id">
             <DogDetail currentUser={currentUser} />
           </Route>
         </Switch>

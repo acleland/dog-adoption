@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { getDogById } from '../../services/dogs';
 import { deleteById } from '../../services/dogs';
 import { useHistory } from 'react-router-dom';
-// import DeleteButton from '../../components/DeleteButton/DeleteButton';
 
 export default function DogDetail({ currentUser }) {
   const params = useParams();
@@ -19,6 +18,10 @@ export default function DogDetail({ currentUser }) {
   const handleDelete = async () => {
     await deleteById(id);
     history.push('/');
+  };
+
+  const handleEdit = () => {
+    history.push(`/dogs/${id}/edit`);
   };
 
   useEffect(() => {
@@ -55,9 +58,8 @@ export default function DogDetail({ currentUser }) {
       </div>
       {currentUser && (
         <div>
-          <button>Edit</button>
+          <button onClick={handleEdit}>Edit</button>
           <button onClick={handleDelete}>Delete</button>
-          {/* <DeleteButton /> */}
         </div>
       )}
     </div>

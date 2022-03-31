@@ -1,0 +1,17 @@
+.dog-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 250px;
+  height: 250px;
+  margin: 0.5em;
+}
+.dog-card img {
+  width: 200px;
+}
+
+.dog-card:hover {
+  background-color: aliceblue;
+}
